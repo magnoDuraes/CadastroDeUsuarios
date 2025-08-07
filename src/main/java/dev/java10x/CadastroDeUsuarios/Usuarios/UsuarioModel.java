@@ -1,5 +1,6 @@
-package dev.java10x.CadastroDeUsuarios;
+package dev.java10x.CadastroDeUsuarios.Usuarios;
 
+import dev.java10x.CadastroDeUsuarios.Tarefas.TarefaModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,9 @@ public class UsuarioModel {
     private String nome;
     private String email;
     private int idade;
+    @ManyToOne
+    @JoinColumn(name = "tarefa_id")
+    private TarefaModel tarefa;
 
     public UsuarioModel() {
     }
@@ -20,6 +24,13 @@ public class UsuarioModel {
         this.nome = nome;
         this.email = email;
         this.idade = idade;
+    }
+
+    public UsuarioModel(String nome, String email, int idade, TarefaModel tarefa) {
+        this.nome = nome;
+        this.email = email;
+        this.idade = idade;
+        this.tarefa = tarefa;
     }
 
     public String getNome() {
