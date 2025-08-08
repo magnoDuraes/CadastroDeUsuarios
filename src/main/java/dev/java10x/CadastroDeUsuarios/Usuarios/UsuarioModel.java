@@ -2,11 +2,16 @@ package dev.java10x.CadastroDeUsuarios.Usuarios;
 
 import dev.java10x.CadastroDeUsuarios.Tarefas.TarefaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_usuario")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UsuarioModel {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,44 +21,4 @@ public class UsuarioModel {
     @ManyToOne
     @JoinColumn(name = "tarefa_id")
     private TarefaModel tarefa;
-
-    public UsuarioModel() {
-    }
-
-    public UsuarioModel(String nome, String email, int idade) {
-        this.nome = nome;
-        this.email = email;
-        this.idade = idade;
-    }
-
-    public UsuarioModel(String nome, String email, int idade, TarefaModel tarefa) {
-        this.nome = nome;
-        this.email = email;
-        this.idade = idade;
-        this.tarefa = tarefa;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
 }
