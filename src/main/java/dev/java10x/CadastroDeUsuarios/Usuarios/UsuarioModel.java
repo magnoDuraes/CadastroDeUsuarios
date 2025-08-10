@@ -19,6 +19,8 @@ public class UsuarioModel {
     @Column(unique = true)
     private String email;
     private int idade;
+    @Column(name = "image_url")
+    private String imageUrl;
     @ManyToOne
     @JoinColumn(name = "tarefa_id")
     private TarefaModel tarefa;
