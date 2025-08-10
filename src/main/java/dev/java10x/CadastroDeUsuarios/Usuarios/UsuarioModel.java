@@ -23,5 +23,5 @@ public class UsuarioModel {
     private String imageUrl;
     @ManyToOne
     @JoinColumn(name = "tarefa_id")
-    private TarefaModel tarefa;
+    private TarefaModel tarefas;
 }
